@@ -1,0 +1,78 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+    
+    match /users/{userId} {
+      allow create: if true;
+      allow update: if isOwner(userId);
+      allow read: if isSignedIn();
+    }
+    
+    match /address/{userId}/all/{document=**} {
+      allow read, write: if isOwner(userId);
+    }
+    
+    // match /orders/{userId}/all/{document=**} {
+    //   allow create: if isOwner(userId);
+    //   allow read, update: if isSignedIn();
+    // }
+    
+    match /orders/{document=**} {
+      allow create, read, update: if isSignedIn();
+    }
+    
+    match /restaurants/{userId} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(userId);
+    }
+    
+    match /menu/{userId}/allItems/{document=**} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(userId);
+    }
+    
+    match /cities/{document=**} {
+      allow read: if true;
+    }
+    
+    match /banners/{document=**} {
+      allow read: if true;
+    }
+    
+    match /categories/{document=**} {
+      allow read: if true;
+      allow create, update: if isRestaurant();
+    }
+    
+    match /chats/{userId}/order_chats/{orderId}/all/{document=**} {
+      allow read, create: if isOwner(userId);
+    }
+    
+    match /chats/{userId}/order_chats/{orderId}/messages/{document=**} {
+      allow read, create: if isOwner(userId);
+    }
+    
+    function isSignedIn() {
+    	return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+    	return isSignedIn() && request.auth.uid == userId;
+    }
+    
+    function getUserData() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+    
+    function isAdmin() {
+    	return isSignedIn() && getUserData().type == "admin";
+    }
+    
+    function isRestaurant() {
+    	return isSignedIn() && getUserData().type == "restaurant";
+    }
+  }
+}

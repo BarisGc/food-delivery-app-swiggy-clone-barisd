@@ -1,0 +1,28 @@
+ion-item {
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 5px;
+    margin-top: 1vh;
+}
+
+.itemImage {
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 1vh;
+    padding: 5vh;
+}
+
+.imageDiv {
+    height: 200px;
+    // width: 100px;
+}
+
+ion-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+input[type='file'] {
+    display: none;
+}

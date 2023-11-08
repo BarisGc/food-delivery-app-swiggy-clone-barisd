@@ -1,0 +1,13 @@
+ion-list {
+    background: transparent;
+    ion-item {
+        border-radius: 10px;
+        ion-icon {
+            margin-left: 8px;
+            margin-right: 24px;
+        }
+        ion-label {
+            font-size: 0.95rem;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<ion-row class="borderBottom" *ngIf="bannerImages?.length > 0">
+  <div>
+    <swiper-container
+    [modules]="swiperModules"
+    [slidesPerView]="1.2"
+    [spaceBetween]="20"
+    [pagination]="{clickable: true, dynamicBullets: true}">
+    <swiper-slide *ngFor="let image of bannerImages" (click)="goToRestaurant(image)">
+      <img [src]="image?.banner" />
+    </swiper-slide>
+  </swiper-container>
+  </div>
+</ion-row>

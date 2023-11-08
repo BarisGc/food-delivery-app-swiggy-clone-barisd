@@ -1,0 +1,97 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+// @import "swiper/css/bundle";
+@import 'swiper/scss';
+@import 'swiper/scss/keyboard';
+@import 'swiper/scss/pagination';
+
+ion-title {
+    font-weight: bold;
+}
+
+ion-label, h4 {
+    font-weight: bold !important;
+    font-size: 0.9rem;
+}
+
+ion-note, p {
+    font-size: 0.8rem;
+}
+
+h5 {
+    font-size: 0.85rem;
+}
+
+h6 {
+    font-size: 0.82rem;
+}
+
+.borderBottom {
+    border-bottom: 1.5vh solid var(--ion-color-light);
+}
+.borderBottomSmall {
+    border-bottom: 0.1rem solid var(--ion-color-light);
+}
+.dashedBorderBottom {
+    border-bottom: 1px dashed var(--ion-color-medium);
+}
+.alignSpinner {
+    transform: translateY(40vh);
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--ion-color-medium);
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--ion-color-primary);
+}
+
+// .address-modal::part(content) {
+//     --height: 70%;
+//     position: absolute;
+//     bottom: 0;
+//     --border-radius: 5px;
+// }
+  
+//   .custom-modal::part(content) {
+//     --height: 78%;
+//     position: absolute;
+//     bottom: 0;
+//     --border-radius: 5px;
+//   }
+
+// ion-modal {
+//     --border-radius: 5px;
+// }
+  
+ion-modal.home-modal::part(content) {
+    --height: 90%;
+    position: absolute;
+    bottom: 0;
+    --border-radius: 5px;
+}

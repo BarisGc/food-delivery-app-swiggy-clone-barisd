@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" *ngIf="urlCheck">
+      <ion-back-button [defaultHref]="getPreviousUrl()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>To Pay ₹{{order?.grandTotal}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+  <ion-list class="ion-margin">
+    <ion-item lines="none" class="ion-margin-bottom" detail="true" (click)="payWithRazorpay()">
+      <ion-avatar slot="start">
+        <img src="assets/imgs/razorpay.png" />
+      </ion-avatar>
+      <ion-label>Pay via Razorpay</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" class="ion-margin-bottom" detail="true" (click)="payWithStripe()">
+      <ion-avatar slot="start">
+        <img src="assets/imgs/stripe.png" />
+      </ion-avatar>
+      <ion-label>Pay via Stripe</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" class="ion-margin-bottom" detail="true" (click)="placeOrder()">
+      <ion-icon name="cash-outline" slot="start" color="success"></ion-icon>
+      <ion-label>Cash on delivery</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
